@@ -1,0 +1,231 @@
+/* Green Plate Bistro — রিকশা-আর্ট + নকশি কাঁথা স্টাইল */
+:root{
+  --green:#0a4d33;--green2:#13805a;--red:#d6202e;--gold:#f5b82e;--pink:#e8508a;--teal:#1aa5a0;
+  --bg:#fff4dc;--card:#fffdf6;--ink:#1b1209;--muted:#6a5642;--edge:#1b1209;--line:#e2c88f;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16100a;--card:#241a11;--ink:#fbeed3;--muted:#c9b594;--edge:#000;--line:#4a3820;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16100a;--card:#241a11;--ink:#fbeed3;--muted:#c9b594;--edge:#000;--line:#4a3820;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Hind Siliguri',system-ui,sans-serif;font-size:17px;line-height:1.7;color:var(--ink);
+  background:radial-gradient(circle,var(--line) 1.2px,transparent 1.6px) 0 0/22px 22px,var(--bg)}
+h1,h2,h3,.brand{font-family:'Tiro Bangla','Hind Siliguri',serif;font-weight:400}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:auto;padding:0 22px}
+
+/* জিগজ্যাগ বর্ডার */
+.alpona{height:14px;background:linear-gradient(135deg,var(--gold) 25%,transparent 25%) 0 0/20px 20px,
+  linear-gradient(225deg,var(--gold) 25%,transparent 25%) 0 0/20px 20px,var(--red)}
+
+/* হেডার */
+header{position:sticky;top:0;z-index:30;background:var(--green);color:#fff4dc;padding-top:env(safe-area-inset-top,0px);border-bottom:4px solid var(--edge)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{font-size:1.5rem;display:flex;align-items:center;gap:12px;letter-spacing:.2px}
+.logo{width:42px;height:42px;border-radius:50% 50% 50% 8px;background:var(--gold);color:var(--edge);border:3px solid var(--edge);
+  display:grid;place-items:center;font:700 .95rem 'Hind Siliguri';transform:rotate(-8deg);box-shadow:3px 3px 0 var(--red)}
+.links{display:flex;gap:8px;align-items:center}
+.links a{font-weight:600;padding:5px 14px;border-radius:999px;transition:.2s}
+.links a:not(.btn):hover{background:var(--gold);color:var(--edge);transform:rotate(-3deg)}
+
+/* বাটন — হাতে আঁকা ফিল */
+.btn{display:inline-block;background:var(--red);color:#fff;padding:13px 30px;border-radius:14px 14px 14px 4px;font:600 1rem 'Hind Siliguri';
+  border:3px solid var(--edge);cursor:pointer;box-shadow:5px 5px 0 var(--edge);transition:.15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--edge);background:var(--pink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--edge)}
+.btn.alt{background:var(--gold);color:var(--edge)}
+.btn.alt:hover{background:#fff}
+.links .btn{padding:7px 20px;box-shadow:3px 3px 0 var(--edge);margin-left:8px}
+.burger{display:none;background:var(--gold);color:var(--edge);border:3px solid var(--edge);border-radius:10px;
+  font-size:1.5rem;line-height:1;padding:3px 11px;cursor:pointer;box-shadow:3px 3px 0 var(--edge)}
+
+/* হিরো */
+.hero{background:var(--green);color:#fff4dc;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-120px;top:-180px;
+  background:var(--red);box-shadow:0 0 0 26px var(--gold),0 0 0 52px #0a4d33,0 0 0 60px var(--pink)}
+.hero::after{content:"";position:absolute;inset:0;opacity:.09;
+  background:radial-gradient(circle,#fff 2px,transparent 2.5px) 0 0/26px 26px}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding-top:64px;padding-bottom:84px}
+.tag{display:inline-block;background:var(--gold);color:var(--edge);border:3px solid var(--edge);padding:2px 18px;border-radius:99px;
+  font-weight:600;font-size:.92rem;margin-bottom:18px;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--edge)}
+.hero h1{font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.2;margin-bottom:16px;text-shadow:4px 4px 0 #00000055}
+.hero h1 span{color:var(--gold);display:inline-block;background:linear-gradient(transparent 62%,var(--red) 62% 90%,transparent 90%)}
+.hero p{max-width:520px;margin-bottom:30px;font-size:1.08rem}
+.cta{display:flex;gap:18px;flex-wrap:wrap}
+.hero .btn{box-shadow:5px 5px 0 #000}
+.plate{position:relative;max-width:420px;margin:auto;width:100%}
+.sun{display:none}
+.plate svg,.hero-img{position:relative;width:100%;height:auto;display:block}
+.plate svg{filter:drop-shadow(8px 10px 0 #00000066)}
+.hero-img{aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 28px 28px;border:6px solid var(--edge);
+  outline:6px dashed var(--gold);outline-offset:8px;box-shadow:12px 14px 0 var(--red)}
+
+/* সেকশন */
+section{padding:84px 0}
+.title{text-align:center;margin-bottom:52px}
+.title small{display:inline-block;background:var(--pink);color:#fff;border:3px solid var(--edge);padding:0 18px;border-radius:99px;
+  font-weight:600;transform:rotate(2deg);box-shadow:3px 3px 0 var(--edge)}
+.title h2{font-size:clamp(2rem,4.5vw,3rem);color:var(--green);margin-top:12px;text-decoration:underline wavy var(--gold) 3px;text-underline-offset:10px}
+.title .orn{width:130px;height:18px;margin:18px auto 0;
+  background:linear-gradient(45deg,var(--red) 40%,transparent 41%) 0 0/36px 18px,linear-gradient(-45deg,var(--teal) 40%,transparent 41%) 18px 0/36px 18px;opacity:.0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .title h2{color:#6fe0ae}}
+
+/* মেনু কার্ড */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:36px 30px}
+.card{background:var(--card);border:3px solid var(--edge);border-radius:22px 22px 22px 6px;box-shadow:8px 8px 0 var(--edge);
+  position:relative;transition:.25s;overflow:visible}
+.card:nth-child(odd){transform:rotate(-1.2deg)}.card:nth-child(even){transform:rotate(1.2deg)}
+.card:hover{transform:rotate(0) translateY(-8px);box-shadow:12px 14px 0 var(--edge)}
+.card:nth-child(6n+1){--c:var(--red)}.card:nth-child(6n+2){--c:var(--teal)}.card:nth-child(6n+3){--c:var(--pink)}
+.card:nth-child(6n+4){--c:var(--green2)}.card:nth-child(6n+5){--c:var(--gold)}.card:nth-child(6n+6){--c:var(--red)}
+.card .img{margin:12px;padding:10px;background:var(--c);border:3px solid var(--edge);border-radius:140px 140px 14px 14px;position:relative}
+.card .img::after{content:"";position:absolute;inset:5px;border:2px dashed #ffffffcc;border-radius:130px 130px 8px 8px;pointer-events:none}
+.card .img img,.card .img svg{width:100%;height:190px;object-fit:cover;display:block;border-radius:120px 120px 8px 8px;background:#fff4dc}
+.card .body{padding:6px 22px 24px}
+.card h3{font-size:1.55rem;line-height:1.3;color:var(--green)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card h3{color:#6fe0ae}}
+.card .en{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.card p{font-size:.96rem;color:var(--muted);margin:8px 0 18px}
+.price{display:flex;justify-content:space-between;align-items:center}
+.price span{background:var(--gold);color:var(--edge);font-weight:700;font-size:1.25rem;padding:2px 18px 2px 22px;border:3px solid var(--edge);
+  clip-path:polygon(12px 0,100% 0,100% 100%,12px 100%,0 50%);}
+.price a{background:var(--edge);color:#fff4dc;font-weight:600;padding:6px 20px;border-radius:99px;transition:.2s;border:3px solid var(--edge)}
+.price a:hover{background:var(--red);transform:rotate(-4deg) scale(1.06)}
+
+/* আমাদের কথা */
+.about{background:var(--green);color:#fff4dc;position:relative;border-top:4px solid var(--edge);border-bottom:4px solid var(--edge)}
+.about::before{content:"";position:absolute;inset:0;opacity:.08;background:repeating-linear-gradient(45deg,#fff 0 2px,transparent 2px 16px)}
+.about .wrap{position:relative}
+.about .title h2{color:var(--gold);text-decoration-color:var(--red)}
+.about .title small{background:var(--gold);color:var(--edge)}
+.about-g{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.about p{margin-bottom:16px;font-size:1.06rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.stats div{background:var(--card);color:var(--ink);border:3px solid var(--edge);border-radius:16px;padding:14px 6px;text-align:center;
+  box-shadow:4px 4px 0 var(--gold);font-weight:600;font-size:.9rem;line-height:1.4}
+.stats div:nth-child(2){transform:translateY(8px)}
+.stats b{display:block;font:400 2rem 'Tiro Bangla',serif;color:var(--red)}
+.frame{border:4px solid var(--edge);border-radius:200px 200px 22px 22px;padding:16px;background:var(--gold);
+  outline:3px dashed #fff4dc;outline-offset:8px;box-shadow:10px 10px 0 var(--red)}
+.frame svg{width:100%;height:auto;display:block;border-radius:190px 190px 10px 10px;border:3px solid var(--edge)}
+
+/* যোগাযোগ */
+.contact-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px}
+.info{background:var(--card);border:3px dashed var(--edge);border-radius:20px;padding:44px 24px 28px;text-align:center;position:relative;
+  box-shadow:inset 0 0 0 6px var(--card),inset 0 0 0 8px var(--line)}
+.info .ic{position:absolute;left:50%;top:-30px;margin-left:-30px;width:60px;height:60px;border-radius:50%;background:var(--c,var(--red));
+  border:3px solid var(--edge);display:grid;place-items:center;font-size:1.7rem;box-shadow:3px 3px 0 var(--edge)}
+.info:nth-child(2) .ic{--c:var(--teal)}.info:nth-child(3) .ic{--c:var(--pink)}
+.info h3{color:var(--green);font-size:1.45rem;margin-bottom:6px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .info h3{color:#6fe0ae}}
+.info p{color:var(--muted)}
+.call{text-align:center;margin-top:48px}
+.call .btn{font-size:1.15rem;padding:15px 38px}
+
+footer{background:var(--edge);color:#f3e3bd;text-align:center;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));font-size:.92rem}
+
+/* রেসপন্সিভ */
+@media (max-width:860px){
+  .hero .wrap,.about-g{grid-template-columns:1fr}
+  .hero .wrap{text-align:center;padding-top:44px;padding-bottom:70px}
+  .hero p{margin-inline:auto}.cta{justify-content:center}
+  .hero::before{width:380px;height:380px;right:-140px;top:-120px}
+  .plate{max-width:310px}
+  .burger{display:block}
+  .links{position:absolute;top:calc(70px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--green);flex-direction:column;
+    align-items:stretch;gap:4px;padding:10px 20px 20px;display:none;border-bottom:4px solid var(--edge)}
+  .links.open{display:flex}
+  .links a{padding:11px 16px;text-align:center}
+  .links .btn{margin:6px 0 0}
+  .about-g{gap:44px}
+}
+@media (max-width:480px){
+  body{font-size:16px}section{padding:62px 0}
+  .card:nth-child(odd),.card:nth-child(even){transform:none}
+  .stats b{font-size:1.6rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== এডিট মোড ===== */
+.frame img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:190px 190px 10px 10px;border:3px solid var(--edge)}
+.adm{opacity:.45;margin-left:12px;font-size:.85rem}.adm:hover{opacity:1}
+body.editing{padding-bottom:110px}
+body.editing [contenteditable="true"]{outline:2px dashed transparent;outline-offset:3px;cursor:text;transition:outline-color .15s,background .15s}
+body.editing [contenteditable="true"]:hover,body.editing [contenteditable="true"]:focus{outline-color:var(--gold);background:#f5b82e26}
+body.editing .plate,body.editing .frame,body.editing .card .img{cursor:pointer}
+body.editing .plate::after,body.editing .frame::after,body.editing .card .img::before{content:"📷 ছবি বদলান";position:absolute;left:50%;bottom:10px;transform:translateX(-50%);
+  background:var(--edge);color:#fff4dc;font-size:.82rem;padding:2px 14px;border-radius:99px;z-index:5;white-space:nowrap;opacity:.9;pointer-events:none}
+body.editing .frame{position:relative}
+.card .del{position:absolute;top:-14px;right:-14px;z-index:6;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;
+  border:3px solid var(--edge);font-size:1rem;cursor:pointer;box-shadow:2px 2px 0 var(--edge)}
+#tb{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:99;display:flex;gap:8px;flex-wrap:wrap;
+  justify-content:center;width:max-content;max-width:calc(100vw - 20px);background:var(--edge);padding:10px;border-radius:18px;border:3px solid var(--gold);box-shadow:0 8px 24px #0008}
+.tbb{font:600 .9rem 'Hind Siliguri',sans-serif;background:var(--gold);color:#1b1209;border:2px solid #1b1209;border-radius:10px;padding:6px 12px;cursor:pointer}
+.tbb.ok{background:#3ddc84}.tbb.x{background:var(--red);color:#fff}.tbb:hover{filter:brightness(1.1)}
+
+/* ===== অ্যানিমেশন: স্মুথ ওপেনিং + স্ক্রল রিভিল ===== */
+:root{--ease:cubic-bezier(.2,.9,.3,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+
+/* ১) ওপেনিং পর্দা — দুই পাশে সরে যায়, মাঝে লোগো ফোটে */
+body::before,body::after{content:"";position:fixed;top:0;bottom:0;width:50.2%;z-index:200;pointer-events:none;
+  background:radial-gradient(circle,#ffffff1f 2px,transparent 2.5px) 0 0/26px 26px,var(--green)}
+body::before{left:0;border-right:6px solid var(--gold);animation:curtainL 1.15s .45s cubic-bezier(.77,0,.18,1) both}
+body::after{right:0;border-left:6px solid var(--gold);animation:curtainR 1.15s .45s cubic-bezier(.77,0,.18,1) both}
+html::before{content:"GP";position:fixed;left:50%;top:50%;width:104px;height:104px;margin:-52px 0 0 -52px;z-index:201;pointer-events:none;
+  display:grid;place-items:center;font:700 2rem 'Hind Siliguri',sans-serif;color:var(--edge);background:var(--gold);
+  border:4px solid var(--edge);border-radius:50% 50% 50% 14px;box-shadow:6px 6px 0 var(--red);animation:emblem 1.6s both}
+@keyframes curtainL{to{translate:-101% 0;visibility:hidden}}
+@keyframes curtainR{to{translate:101% 0;visibility:hidden}}
+@keyframes emblem{0%{opacity:0;scale:.3;rotate:-50deg}
+  30%{opacity:1;scale:1.08;rotate:-8deg}45%{scale:1;rotate:-8deg}
+  65%{opacity:1;scale:1;rotate:-8deg}100%{opacity:0;scale:1.7;rotate:6deg;visibility:hidden}}
+
+/* ২) পর্দা সরলে হেডার + হিরো ধীরে ফোটে */
+header{animation:dropIn 1s 1.15s var(--ease) both}
+@keyframes dropIn{from{opacity:0;translate:0 -100%}to{opacity:1;translate:0 0}}
+.hero::before{animation:ring 1.8s 1.1s var(--ease) both}
+@keyframes ring{from{opacity:0;scale:.15}to{opacity:1;scale:1}}
+.hero::after{animation:drift 40s linear infinite}
+@keyframes drift{to{background-position:260px 130px}}
+.hero .wrap>div:first-child>*{animation:riseIn 1.1s var(--ease) both}
+.hero .wrap>div:first-child>:nth-child(1){animation-delay:1.35s}
+.hero .wrap>div:first-child>:nth-child(2){animation-delay:1.5s}
+.hero .wrap>div:first-child>:nth-child(3){animation-delay:1.65s}
+.hero .wrap>div:first-child>:nth-child(4){animation-delay:1.8s}
+@keyframes riseIn{from{opacity:0;translate:0 34px;filter:blur(10px)}to{opacity:1;translate:0 0;filter:blur(0)}}
+.plate{animation:plateIn 1.5s 1.45s var(--ease) both}
+@keyframes plateIn{from{opacity:0;scale:.55;rotate:-16deg;translate:0 46px}to{opacity:1;scale:1;rotate:0deg;translate:0 0}}
+.plate>svg,.hero-img{animation:floaty 7s 3s ease-in-out infinite}
+@keyframes floaty{50%{translate:0 -14px}}
+/* প্লেটের ওপর ভাপ */
+.plate::before{content:"";position:absolute;left:50%;top:8%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#fff;
+  filter:blur(9px);box-shadow:-46px 12px 0 #fff,46px 6px 0 #fff;z-index:3;opacity:0;pointer-events:none;animation:steam 4s 3s ease-in infinite}
+@keyframes steam{0%{opacity:0;translate:0 50px;scale:.6}30%{opacity:.5}100%{opacity:0;translate:0 -50px;scale:1.6}}
+
+/* ৩) স্ক্রল করলে সেকশন একে একে আসে */
+.js .reveal{transition:opacity 1s var(--ease) var(--d,0ms),translate 1s var(--ease) var(--d,0ms),scale 1s var(--ease) var(--d,0ms)}
+.js .reveal:not(.in){opacity:0;translate:0 56px;scale:.96}
+.js .card.reveal{transition:transform .3s,box-shadow .3s,opacity 1s var(--ease) var(--d,0ms),translate 1s var(--ease) var(--d,0ms),scale 1s var(--ease) var(--d,0ms)}
+.js .stats div.reveal:not(.in){translate:0 30px;scale:.8}
+.js .title.reveal.in small{animation:pop .9s .25s var(--spring) both}
+@keyframes pop{from{scale:.3;opacity:0}to{scale:1;opacity:1}}
+
+/* ৪) ছোট ছোট প্রাণ */
+.alpona{animation:march 2.4s linear infinite}
+@keyframes march{to{background-position:20px 0,20px 0,0 0}}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,#ffffff80,transparent);transform:skewX(-20deg);transition:left .7s var(--ease)}
+.btn:hover::after{left:135%}
+.card .img{overflow:hidden}
+.card .img img,.card .img svg{transition:transform .8s var(--ease)}
+.card:hover .img img,.card:hover .img svg{transform:scale(1.1) rotate(1.5deg)}
+.logo{transition:rotate .5s var(--spring)}.brand:hover .logo{rotate:360deg}
+.info{transition:transform .35s var(--spring),box-shadow .35s}.info:hover{transform:translateY(-8px) rotate(-1deg)}
+.info:hover .ic{animation:jig .6s}
+@keyframes jig{25%{rotate:-14deg}60%{rotate:12deg}to{rotate:0deg}}
+
+@media (prefers-reduced-motion:reduce){
+  body::before,body::after,html::before,.plate::before{display:none}
+  header,.hero::before,.hero::after,.hero .wrap>div:first-child>*,.plate,.plate>svg,.hero-img,.alpona{animation:none!important}
+}
